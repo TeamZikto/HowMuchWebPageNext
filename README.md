@@ -10,8 +10,6 @@ New HowMuchWebPage with Next.js
 
 
 ## Folder Tree
-
-.
 +-- .next
 +-- api
 |   +-- api.js
@@ -28,5 +26,4 @@ New HowMuchWebPage with Next.js
 |   +-- index.js
 |   +-- itemTrend
 |   +-- itemTrendDetail
-|   |   +-- [id].js
 +-- public
