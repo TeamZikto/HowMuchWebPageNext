@@ -1,0 +1,69 @@
+{
+    "lang": {
+        "ko": "Korean",
+        "en": "English",
+        "vn": "Vietnamese"
+    },
+    "header" : {
+        "label1" : "so sánh giá",
+        "label2" : "blog"
+    },  
+    "title": {"label": "Từ hình ảnh đến tiền bạc"},
+    "appName": {"label": "Ulmaya"},
+    "search": {
+        "label": "sự tìm kiếm",
+        "error1": "Vui lòng nhập từ khóa tìm kiếm.",
+        "error2": "Hãy chọn lịch sử tìm kiếm.",
+        "error3": "Không có lịch sử tìm kiếm."
+    },
+    "section_2": {
+        "line1": "Find out the fairest mobile used",
+        "line2": "quotes in Ulmaya"
+    },
+    "section_3": {
+        "line1": "trí tuệ nhân tạo tìm thấy",
+        "line2": "giá sử dụng cao nhất",
+        "subtitle": "Xu hướng thị trường sử dụng các mặt hàng phổ biến"
+    },
+    "section_4": {
+        "line1": "Check the quotes of the goods",
+        "line2": "based on the registration status of various users."
+    },
+    "hello": "Hello !!",
+    "mail": {
+        "label1":{
+            "line1": "Chúng tôi sẽ cho bạn biết",
+            "line2": "khi dịch vụ sẵn sàng."
+        },
+        "label2": "Hãy nhập địa chỉ email của bạn."
+    },
+    "brand": {
+        "apple": "Apple",
+        "samsung": "Samsung",
+        "lg": "LG"
+    },
+    "price": {
+        "average": "average price",
+        "highest": "The highest price",
+        "lowest": "The lowest price"
+    },
+    "detail": {
+        "secondHand": "Lời trích dẫn lại gần đây nhất",
+        "marketPrice": "Giá thấp nhất",
+        "highest": "Giá cao nhất",
+        "lowest": "Giá thấp nhất",
+        "chart": "Biểu đồ trích dẫn cũ",
+        "date": "Hẹn hò.",
+        "variable": "Giá cả biến động",
+        "percent": "Phần trăm biến động",
+        "sell_button": "Bán sản phẩm",
+        "loan_button": "Khoản vay thế chấp"
+    },
+    "unit": "VND",
+    "send_button": "Gửi",
+    "email": {
+        "success": "Gửi email đã hoàn thành.",
+        "error": "Hãy nhập email chính xác."
+    }
+}
+

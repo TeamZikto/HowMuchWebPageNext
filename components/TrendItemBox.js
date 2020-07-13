@@ -156,7 +156,6 @@ const ArrowImage = styled.img`
 
 const TrendItemsBox = ({trendItem}) => {
     const [width, setWidth] = useState(100);
-    console.log(trendItem,'--')
     return (
         <div>
             {trendItem &&

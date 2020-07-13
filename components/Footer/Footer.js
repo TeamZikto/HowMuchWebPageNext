@@ -3,9 +3,9 @@ import React, {Component, ReactDOM} from 'react';
 import styled from 'styled-components'
 
 // image
-import logo from '../assets/image/logo.png'
-import blog from '../assets/image/blog_icon.png'
-import instagram from '../assets/image/instagram_icon.png'
+import logo from '../../assets/image/logo.png'
+import blog from '../../assets/image/blog_icon.png'
+import instagram from '../../assets/image/instagram_icon.png'
 
 const FooterContainer = styled.div`
     color: black;
@@ -139,7 +139,6 @@ export default class Footer extends Component {
   }
 
   componentDidMount = () => {
-    console.log(this.props,'=')
   }
 
 

@@ -31,6 +31,6 @@ export const search = {
   getSearchItem: (keyword) => api.get(`/api/web/search?keyword=${keyword}`)
 }
 
-export const sendEmail = {
-  sendEmail: (email) => api.post(`/api/web/send/email`, {email})
+export const request = {
+  send: (email) => api.post(`/api/web/send/email`, {email})
 }

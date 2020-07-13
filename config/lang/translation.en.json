@@ -1,0 +1,63 @@
+{
+    "lang": {
+        "ko": "Korean",
+        "en": "English",
+        "vn": "Vietnamese"
+    },
+    "main_title": {
+        "label1": "Get",
+        "label2": "ULMAYA",
+        "label3": "pricing in",
+        "label4": "one snap Upload"
+    },
+    "header" : {
+        "label1" : "price comparison",
+        "label2" : "blog"
+    },  
+    "title": {"label": "If you take it, it becomes money."},
+    "appName": {"label": "Ulmaya"},
+    "section_2": {
+        "line1": "Find out the fairest mobile used",
+        "line2": "quotes in Ulmaya"
+    },
+    "section_3": {
+        "line1": "Crawling technology",
+        "line2": "measures fair used quotes.",
+        "subtitle": "Popular Items Used Market Trends"
+    },
+    "section_4": {
+        "line1": "Check the quotes of the goods",
+        "line2": "based on the registration status of various users."
+    },
+    "hello": "Hello !!",
+    "mail": {
+        "label1":{
+            "line1": "We will let you know",
+            "line2": "when our service is ready."
+        },
+        "label2": "enter your email address"
+    },
+    "brand": {
+        "apple": "Apple",
+        "samsung": "Samsung",
+        "lg": "LG"
+    },
+    "price": {
+        "average": "average price",
+        "highest": "The highest price",
+        "lowest": "The lowest price"
+    },
+    "detail": {
+        "secondHand": "The latest second-hand quotation",
+        "marketPrice": "Highest Lowest Price",
+        "highest": "The highest price",
+        "lowest": "The lowest price",
+        "chart": "Secondhand quotations chart",
+        "date": "Date",
+        "variable": "Variable price",
+        "percent": "Percentage of variation"
+    },
+    "unit": "VND",
+    "send_button": "Send"
+}
+

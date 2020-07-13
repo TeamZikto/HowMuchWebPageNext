@@ -1,0 +1,67 @@
+{
+    "lang": {
+        "ko": "한국어",
+        "en": "영어",
+        "vn": "베트남어"
+    },
+    "header" : {
+        "label1" : "가격 비교",
+        "label2" : "블로그"
+    },  
+    "title": {"label": "찍으면 돈이 된다."},
+    "appName": {"label": "얼마야."},
+    "search": {
+        "label": "Search",
+        "error1": "검색어를 입력해주세요.",
+        "error2": "검색 내역을 선택해주세요.",
+        "error3": "검색 내역이 없습니다."
+    },
+    "section_2": {
+        "line1": "얼마야에서 가장 공정한",
+        "line2": "모바일 중고시세를 알아보세요."
+    },
+    "section_3": {
+        "line1": "크롤링 기술로 공정한 중고",
+        "line2": "시세를 측정 하고 있습니다.",
+        "subtitle": "인기 품목 중고 시세 동향"
+    },
+    "section_4": {
+        "line1": "여러 사용자들의 등록 현황으로",
+        "line2": "물품의 시세를 알아보세요."
+    },
+    "hello": "안녕",
+    "mail": {
+        "label1":{
+            "line1": "서비스가 준비되면",
+            "line2": "메일을 통해 알려드리겠습니다."
+        },
+        "label2": "이메일을 입력해주세요."
+    },
+    "brand": {
+        "apple": "애플",
+        "samsung": "삼성",
+        "lg": "엘지"
+    },
+    "price": {
+        "average": "평균가",
+        "highest": "최고가",
+        "lowest": "최저가"
+    },
+    "detail": {
+        "secondHand": "최근 중고 시세",
+        "marketPrice": "최고 최저 시세",
+        "highest": "최고 시세",
+        "lowest": "최저 시세",
+        "chart": "중고 시세 차트",
+        "date": "날짜",
+        "variable": "변동 가격",
+        "percent": "변동률"
+    },
+    "unit": "원",
+    "send_button": "보내기",
+    "email": {
+        "success": "이메일 전송이 완료되었습니다.",
+        "error": "이메일을 정확히 입력해주세요."
+    }
+}
+

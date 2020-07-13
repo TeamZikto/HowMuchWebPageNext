@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { item } from '../api/api';
 import Router, { useRouter, withRouter } from 'next/router'
 import Link from "next/link";
-
+import i18n from '../config/lang/i18n';
 import styled from 'styled-components';
 import Meta from '../components/Meta';
 import withHead from '../components/hoc/withHead';
@@ -446,9 +446,9 @@ const Home = () => {
                 <HomeMainContainer>
                     <FirstArticleWrap>
                         <TitleText>
-                            찍으면 돈이 된다.
-                            <br/>
-                            얼마야.
+                            {i18n.t('title.label')}
+                            <br />
+                            {i18n.t('appName.label')}
                         </TitleText>
                         <LinkButtonWrap>
                             <LinkContainer
@@ -478,22 +478,22 @@ const Home = () => {
                 <HomeArticleContainer style={{backgroundColor: '#DCFFF7'}}>
                     <PriceTrendArticleWrap>
                         <SubTitleTextMobile>
-                            얼마야에서 가장 공정한
+                            {i18n.t('section_2.line1')}
                             <br/>
-                            모바일 중고시세를 알아보세요.
+                            {i18n.t('section_2.line2')}
                         </SubTitleTextMobile>
                         <SubTitleText>
-                            얼마야에서 가장 공정한
+                            {i18n.t('section_2.line1')}
                             <br/>
-                            모바일 중고시세를 알아보세요.
+                            {i18n.t('section_2.line2')}
                         </SubTitleText>
                         <PriceTrendSortTabContainer>
                             <ItemTrendLinkButtonWrap>
-                            <Link href={'/itemTrend'}>
+                            <a onClick={() => Router.push('/itemTrend')}>
                                 <ItemTrendLinkButton>
                                     가격 비교
                                 </ItemTrendLinkButton>
-                            </Link>
+                            </a>
                             </ItemTrendLinkButtonWrap>
                         </PriceTrendSortTabContainer>
                         <div>
@@ -506,9 +506,9 @@ const Home = () => {
                 <HomeArticleContainer>
                     <SecondArticleWrap>
                         <SubTitleTextMobile>
-                            크롤링 기술로 공정한 중고
+                            {i18n.t('section_3.line1')}
                             <br/>
-                            시세를 측정 하고 있습니다.
+                            {i18n.t('section_3.line2')}
                         </SubTitleTextMobile>
                         <SecondArticleImage>
                             {pathname && pathname === '/' ? (
@@ -519,12 +519,12 @@ const Home = () => {
                         </SecondArticleImage>
                         <div>
                             <SubTitleText>
-                                크롤링 기술로 공정한 중고
+                                {i18n.t('section_3.line1')}
                                 <br/>
-                                시세를 측정 하고 있습니다.
+                                {i18n.t('section_3.line2')}
                             </SubTitleText>
                             <SecondaryTitle>
-                                인기 품목 중고 시세 동향
+                                {i18n.t('section_3.subtitle')}
                             </SecondaryTitle>
                             <TrendItemsBox trendItem={trendItem} />
                         </div>
@@ -536,9 +536,9 @@ const Home = () => {
                     <ThirdArticleWrap>
                         <div style={{ width: "100%" }}>
                             <SubTitleTextThird>
-                                여러 사용자들의 등록 현황으로
+                                {i18n.t('section_4.line1')}
                                 <br/>
-                                물품의 시세를 알아보세요.
+                                {i18n.t('section_4.line2')}
                             </SubTitleTextThird>
                             <ItemSlider recentUserItemList={recentUserItemList} />
                         </div>
@@ -564,22 +564,27 @@ const Home = () => {
 
                 <div style={{maxWidth: 1184, padding: '0 40px 200px', margin: '0 auto'}}>
                     <BlogContentsContainer>
-                        {BlogLinkItems && BlogLinkItems.map((v) => {
+                        {BlogLinkItems && BlogLinkItems.map((v, i) => {
                         return (
-                            <div style={{
-                            borderRadius: 14,
+                            <div key={i} style={{
+                                borderRadius: 14,
                             }}>
-                            <a href={`${v.link}`}>
-                                <img src={`${v.image}`} style={{width: '100%', height: '100%', borderRadius: 14}}/>
-                                <div style={{fontWeight: 600, margin: '5px 0', fontFamily: 'SpoqaHanSans-Bold'}}>{v.title}</div>
-                                <div style={{fontWeight: 400, fontSize: 12, lineHeight: '20px', fontFamily: 'SpoqaHanSans-Regular'}}>{v.subTitle}</div>
-                            </a>
+                                <a href={`${v.link}`}>
+                                    <img src={`${v.image}`} style={{width: '100%', height: '100%', borderRadius: 14}}/>
+                                    <div style={{fontWeight: 600, margin: '5px 0', fontFamily: 'SpoqaHanSans-Bold'}}>{v.title}</div>
+                                    <div style={{fontWeight: 400, fontSize: 12, lineHeight: '20px', fontFamily: 'SpoqaHanSans-Regular'}}>{v.subTitle}</div>
+                                </a>
                             </div>  
                         )
                         })}
                     </BlogContentsContainer>
                 </div>
             </main>
+            <div style={{position: 'absolute', right: 0, bottom: 0, display: 'none'}}>
+                <div onClick={() => Router.push('/itemListPage')}>
+                    <div>asd</div>
+                </div>
+            </div>
         </HomeWrap>
     )
 }

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import numeral from 'numeral';
 import Router, { useRouter, withRouter } from 'next/router'
+import i18n from '../config/lang/i18n';
 
 import LineChartContainer from './LineChartContainer';
 
@@ -141,7 +142,14 @@ const PercentagePlusText = styled.div`
     }
 `
 
-const ItemBoxLoop = ({trendItem, logo}) => {
+
+const ItemBoxLoop = ({trendItem, logo}) => { 
+
+    const _linkItemDetail = (name) => {
+        // const name = selectedModel.split(' ').join('-');
+        
+        Router.push(`/itemTrendDetail/[id]`, `/itemTrendDetail/${name.split(' ').join('-')}`)
+    }
 
     return (
         <>
@@ -162,8 +170,8 @@ const ItemBoxLoop = ({trendItem, logo}) => {
 
                             return (
                                 <TrendItemBoxWrap key={i}>
-                                    <div style={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
-                                        <a onClick={() => Router.push(`/itemTrendDetail/${(v.name).split(' ').join('-')}`)}>
+                                    <div style={{display: 'flex', justifyContent: 'space-between', width: '100%', cursor: 'pointer'}}>
+                                        <a onClick={() => _linkItemDetail(name)}>
                                             <TrendItemName>{name}</TrendItemName>
                                             <TrendItemPrice>{numeral(v.priceTrend[priceTrend.length - 1]).format('0,0')} 원</TrendItemPrice>
                                             {itemPricePercentage < 0 && (
@@ -172,7 +180,7 @@ const ItemBoxLoop = ({trendItem, logo}) => {
                                                         src={Down}
                                                     />
                                                     <PercentageMinusText>
-                                                        {itemPricePercentage}% (평균가)
+                                                        {itemPricePercentage}% ({i18n.t('price.average')})
                                                     </PercentageMinusText>
                                                 </PercentageWrap>
                                             )}
@@ -183,7 +191,7 @@ const ItemBoxLoop = ({trendItem, logo}) => {
                                                 />
                                                 <PercentagePlusText
                                                 >
-                                                    {itemPricePercentage}% (평균가)
+                                                    {itemPricePercentage}% ({i18n.t('price.average')})
                                                 </PercentagePlusText>
                                                 </PercentageWrap>
                                             )}

@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import Router, { useRouter, withRouter } from 'next/router'
-import withHead from '../../components/hoc/withHead';
-import { detail } from '../../api/api';
-import EachLineChartContainer from '../../components/EachItemLinkChartContainer';
+import { detail } from '../../../api/api';
+import i18n from '../../../config/lang/i18n';
+import EachLineChartContainer from '../../../components/EachItemLinkChartContainer';
 import numeral from 'numeral';
 import moment from 'moment';
-import i18n from '../../config/lang/i18n';
+import withHead from '../../../components/hoc/withHead';
 
 const HomeWrap = styled.div`
     width: 100%;
@@ -160,13 +160,49 @@ const PriceMinText = styled.span`
     }
 `
 
+const ButtonArea = styled.div`
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: 1024px) {
+    }
+    @media (max-width: 768px) {
+    }
+`
+
+const ButtonWrap = styled.button`
+    border-radius: 10px;
+    border: 2px solid #00E27F;
+    width: 100%;
+    height: 62px;
+    font-family: 'SpoqaHanSans-Bold';
+    font-size: 18px;
+    @media (max-width: 1024px) {
+        height: 55px;
+        font-size: 18px;
+    }
+    @media (max-width: 768px) {
+        height: 50px;
+        font-size: 14px;
+    }
+`
+
+
 const ItemTrendDetail = (props) => {
-    const {router: {query: {id}}} = props;
+    const { router: {query: {id}, pathname} } = props
+    console.log(props)
+    const pathCheck = pathname.includes('/vn');
     const [trendItem, setTrendItem] = useState();
+
     useEffect(() => {
         const getTrendItem = async() => {
             try {
-                const result = await detail.getDetailTrendItemKo(id.split('-').join(' '));
+                const result = await detail.getDetailTrendItemVn(String(id).split('-').join(' '));
                 setTrendItem(result.data.data)
             } catch(e) {
                 console.log(e)
@@ -178,6 +214,10 @@ const ItemTrendDetail = (props) => {
         getTrendItem();
         scrollTop();
     }, [props])
+
+    const sendMail = () => {
+        Router.push('/vn/sendMail')
+    }
 
     const itemDetail = trendItem && trendItem.itemDetail;
     const trendHistory = trendItem && trendItem.trendHistory;
@@ -193,12 +233,40 @@ const ItemTrendDetail = (props) => {
         <HomeWrap>
             <div>
                 <HomeMainContainer>
+
                     <LeftArticleWrap>
                         <ImageSectionWrap>
                             <TopContainerWrap>
                                 <img style={{width: '100%'}} src={itemDetail && itemDetail.image} alt="image"/>
                             </TopContainerWrap>
                         </ImageSectionWrap>
+                        {pathCheck && (
+                            <ButtonArea
+                                style={{
+                                    borderTop: '2px solid #F6F6F6'
+                                }}
+                            >
+                                <ButtonWrap
+                                    onClick={sendMail}
+                                    style={{
+                                        backgroundColor: 'white',
+                                        marginRight: 10
+                                    }}
+                                >
+                                    {i18n.t('detail.sell_button')}
+                                </ButtonWrap>
+                                <ButtonWrap
+                                    onClick={sendMail}
+                                    style={{
+                                        backgroundColor: '#00E27F',
+                                        marginLeft: 10,
+                                        color: 'white'
+                                    }}
+                                >
+                                    {i18n.t('detail.loan_button')}
+                                </ButtonWrap>
+                            </ButtonArea>
+                        )}
                     </LeftArticleWrap>
 
                     <RightArticleWrap>
@@ -249,4 +317,4 @@ const ItemTrendDetail = (props) => {
     )
 }
 
-export default withHead(ItemTrendDetail, `얼마야 - `, '중고 시세의 평균값, 시세 추이, 대출한도, 매입가를 알 수 있습니다.'); 
+export default ItemTrendDetail;

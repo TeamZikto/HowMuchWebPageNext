@@ -2,7 +2,7 @@ import React from 'react'
 import App, {Container} from 'next/app'
 import Head from 'next/head';
 import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Footer from '../components/Footer/index.js';
 import GlobalStyles from '../components/GlobalStyles';
 import Router from '../components/Router'
 import 'swiper/swiper-bundle.css';
