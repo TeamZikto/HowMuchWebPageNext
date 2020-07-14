@@ -191,8 +191,7 @@ export async function getStaticProps(context) {
     // will receive `posts` as a prop at build time
     return {
       props: {
-        itemDetail: data.data.itemDetail,
-        // itemDetail: "fe",
+        itemDetail: data.data
       },
     }
   }
@@ -210,33 +209,23 @@ export async function getStaticPaths() {
 }
 
 const ItemTrendDetail = (props) => {
-
     const {router: {query: {id}}} = props;
-    // const [trendItem, setTrendItem] = useState();
-    // useEffect(() => {
-    //     const getTrendItem = async() => {
-    //         try {
-    //             const result = await detail.getDetailTrendItemKo(id.split('-').join(' '));
-    //             setTrendItem(result.data.data)
-    //         } catch(e) {
-    //             console.log(e)
-    //         }
-    //     }
-    //     const scrollTop = () =>{
-    //         window.scrollTo({top: 0, behavior: 'smooth'});
-    //     };
-    //     getTrendItem();
-    //     scrollTop();
-    // }, [props])
 
-    const itemDetail = props.pageProps && props.pageProps.itemDetail;
-    // const trendHistory = trendItem && trendItem.trendHistory;
-    // const lastPrice = trendHistory && trendHistory[trendHistory.length - 1] && trendHistory[trendHistory.length - 1].price
-    // const lastDate = trendHistory && trendHistory[trendHistory.length - 1] && trendHistory[trendHistory.length - 1].date
-    // const itemPriceTrend = trendHistory && trendHistory.map((v) => v.price)
-    // const itemPriceTrendDate = trendHistory && trendHistory.map((v) => v.date)
-    // const priceMax = Math.max.apply(null, itemPriceTrend);
-    // const priceMin = Math.min.apply(null, itemPriceTrend);
+    useEffect(() => {
+        const scrollTop = () =>{
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        };
+        scrollTop();
+    }, [])
+
+    const itemDetail = props && props.pageProps && props.pageProps.itemDetail && props.pageProps.itemDetail.itemDetail; 
+    const trendHistory = props && props.pageProps && props.pageProps.itemDetail && props.pageProps.itemDetail.trendHistory; 
+    const lastPrice = trendHistory && trendHistory[trendHistory.length - 1] && trendHistory[trendHistory.length - 1].price;
+    const lastDate = trendHistory && trendHistory[trendHistory.length - 1] && trendHistory[trendHistory.length - 1].date;
+    const itemPriceTrend = trendHistory && trendHistory.map((v) => v.price)
+    const itemPriceTrendDate = trendHistory && trendHistory.map((v) => v.date)
+    const priceMax = Math.max.apply(null, itemPriceTrend);
+    const priceMin = Math.min.apply(null, itemPriceTrend);
 
 
     return (
@@ -246,8 +235,8 @@ const ItemTrendDetail = (props) => {
                     <LeftArticleWrap>
                         <ImageSectionWrap>
                             <TopContainerWrap>
-                                <img style={{width: '100%'}} src={itemDetail && itemDetail.image} alt="image"/>
                                 {/* <img style={{width: '100%'}} src={itemDetail && itemDetail.image} alt="image"/> */}
+                                <img style={{width: '100%'}} src={itemDetail && itemDetail.image} alt="image"/>
                             </TopContainerWrap>
                         </ImageSectionWrap>
                     </LeftArticleWrap>
@@ -256,10 +245,10 @@ const ItemTrendDetail = (props) => {
                         <TitleTextWrap>
                             <TitleText>
                                 {/* {JSON.stringify(props)} */}
-                                fred {itemDetail && itemDetail.name}
+                                {itemDetail && itemDetail.name}
                             </TitleText>
                         </TitleTextWrap>
-                        {/* <SubTitleTextWrap>
+                        <SubTitleTextWrap>
                             <SubTitle>
                                 {i18n.t('detail.secondHand')}
                             </SubTitle>
@@ -292,7 +281,7 @@ const ItemTrendDetail = (props) => {
                         </div>
                         <div style={{padding: '20px 20px 40px', backgroundColor: '#DCFFF7', marginTop: 20,borderRadius: 20}}>
                             <EachLineChartContainer priceTrend={itemPriceTrend} dateTrend={itemPriceTrendDate} name={itemDetail && itemDetail.name} width={'100%'} height={250}/>
-                        </div> */}
+                        </div>
                     </RightArticleWrap>
 
                 </HomeMainContainer>
