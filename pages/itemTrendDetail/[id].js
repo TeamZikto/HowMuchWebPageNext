@@ -165,11 +165,13 @@ export async function getStaticProps(context) {
     // console.log(context)
     // const [trendItem, setTrendItem] = useState();
 
-    const {id} = context.params;
-    // id.replace('-',' ')
-    const result = await detail.getDetailTrendItemKo(id.split('-').join(' '));
+    let {id} = context.params;
+    id = id.split('-').join(' ')
+    // const result = await detail.getDetailTrendItemKo(id.split('-').join(' '));
+    const result = await fetch(`https://howmuch.zikto.com/api/web/detail/${id}`)
+    const data = await result.json()
     // setTrendItem(result.data.data)
-    console.log(result.data.data.itemDetail,'-')
+    console.log(data)
     
     // const itemDetail = trendItem && trendItem.itemDetail;
     // const trendHistory = trendItem && trendItem.trendHistory;
@@ -183,21 +185,33 @@ export async function getStaticProps(context) {
     // will receive `posts` as a prop at build time
     return {
       props: {
-        itemDetail: result.data.data.itemDetail,
+        itemDetail: data.data.itemDetail,
       },
     }
   }
 
 export async function getStaticPaths() {
-    const res = await fetch('https://howmuch.zikto.com/api/web/trend/itemList')
+    const res = await fetch(`https://howmuch.zikto.com/api/web/trend/itemList`)
     const items = await res.json()
 
-    // console.log(items)
+    const fetchItems = items && items.data
+    // const fetchItemName = fetchItems && fetchItems.map((v)=> v.name)
+    // console.log(fetchItemName)
+
+
     return {
-        paths: [
-            { params: { id: encodeURIComponent('갤럭시-S10-5G-256GB') } },
-            // { params: { id: '갤럭시 S10 5G 256GB' } }
-        ],
+        // paths: [
+        //     { params: { id: encodeURIComponent(fetchItemName)} },
+        //     // { params: { id :encodeURIComponent(items.name)}}
+        // ],
+
+        paths: fetchItems && fetchItems.map((item) => {
+            return {
+                params: {
+                    id: `${encodeURIComponent(item.name)}`
+                }
+            }
+        }),
     
         fallback: true
     }
@@ -222,7 +236,7 @@ const ItemTrendDetail = (props) => {
     //     scrollTop();
     // }, [props])
 
-    // const itemDetail = trendItem && trendItem.itemDetail;
+    const itemDetail = props.pageProps && props.pageProps.itemDetail;
     // const trendHistory = trendItem && trendItem.trendHistory;
     // const lastPrice = trendHistory && trendHistory[trendHistory.length - 1] && trendHistory[trendHistory.length - 1].price
     // const lastDate = trendHistory && trendHistory[trendHistory.length - 1] && trendHistory[trendHistory.length - 1].date
@@ -248,7 +262,8 @@ const ItemTrendDetail = (props) => {
                     <RightArticleWrap>
                         <TitleTextWrap>
                             <TitleText>
-                                {props.itemDetail && props.itemDetail.name}
+                                {/* {JSON.stringify(props)} */}
+                                fred {itemDetail && itemDetail.name}
                             </TitleText>
                         </TitleTextWrap>
                         {/* <SubTitleTextWrap>
