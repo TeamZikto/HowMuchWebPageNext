@@ -55,7 +55,9 @@
         "chart": "중고 시세 차트",
         "date": "날짜",
         "variable": "변동 가격",
-        "percent": "변동률"
+        "percent": "변동률",
+        "sell_button": "판매",
+        "loan_button": "대출"
     },
     "unit": "원",
     "send_button": "보내기",

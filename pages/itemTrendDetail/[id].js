@@ -159,34 +159,77 @@ const PriceMinText = styled.span`
         font-size: 16px;
     }
 `
+export async function getStaticProps(context) {
+    // Call an external API endpoint to get posts.
+    // You can use any data fetching library
+    // console.log(context)
+    // const [trendItem, setTrendItem] = useState();
+
+    const {id} = context.params;
+    // id.replace('-',' ')
+    const result = await detail.getDetailTrendItemKo(id.split('-').join(' '));
+    // setTrendItem(result.data.data)
+    console.log(result.data.data.itemDetail,'-')
+    
+    // const itemDetail = trendItem && trendItem.itemDetail;
+    // const trendHistory = trendItem && trendItem.trendHistory;
+    // const lastPrice = trendHistory && trendHistory[trendHistory.length - 1] && trendHistory[trendHistory.length - 1].price
+    // const lastDate = trendHistory && trendHistory[trendHistory.length - 1] && trendHistory[trendHistory.length - 1].date
+    // const itemPriceTrend = trendHistory && trendHistory.map((v) => v.price)
+    // const itemPriceTrendDate = trendHistory && trendHistory.map((v) => v.date)
+    // const priceMax = Math.max.apply(null, itemPriceTrend);
+    // const priceMin = Math.min.apply(null, itemPriceTrend);
+    // By returning { props: posts }, the Blog component
+    // will receive `posts` as a prop at build time
+    return {
+      props: {
+        itemDetail: result.data.data.itemDetail,
+      },
+    }
+  }
+
+export async function getStaticPaths() {
+    const res = await fetch('https://howmuch.zikto.com/api/web/trend/itemList')
+    const items = await res.json()
+
+    // console.log(items)
+    return {
+        paths: [
+            { params: { id: encodeURIComponent('갤럭시-S10-5G-256GB') } },
+            // { params: { id: '갤럭시 S10 5G 256GB' } }
+        ],
+    
+        fallback: true
+    }
+}
 
 const ItemTrendDetail = (props) => {
-    const {router: {query: {id}}} = props;
-    const [trendItem, setTrendItem] = useState();
-    useEffect(() => {
-        const getTrendItem = async() => {
-            try {
-                const result = await detail.getDetailTrendItemKo(id.split('-').join(' '));
-                setTrendItem(result.data.data)
-            } catch(e) {
-                console.log(e)
-            }
-        }
-        const scrollTop = () =>{
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        };
-        getTrendItem();
-        scrollTop();
-    }, [props])
+    // const {router: {query: {id}}} = props;
+    // const [trendItem, setTrendItem] = useState();
+    // useEffect(() => {
+    //     const getTrendItem = async() => {
+    //         try {
+    //             const result = await detail.getDetailTrendItemKo(id.split('-').join(' '));
+    //             setTrendItem(result.data.data)
+    //         } catch(e) {
+    //             console.log(e)
+    //         }
+    //     }
+    //     const scrollTop = () =>{
+    //         window.scrollTo({top: 0, behavior: 'smooth'});
+    //     };
+    //     getTrendItem();
+    //     scrollTop();
+    // }, [props])
 
-    const itemDetail = trendItem && trendItem.itemDetail;
-    const trendHistory = trendItem && trendItem.trendHistory;
-    const lastPrice = trendHistory && trendHistory[trendHistory.length - 1] && trendHistory[trendHistory.length - 1].price
-    const lastDate = trendHistory && trendHistory[trendHistory.length - 1] && trendHistory[trendHistory.length - 1].date
-    const itemPriceTrend = trendHistory && trendHistory.map((v) => v.price)
-    const itemPriceTrendDate = trendHistory && trendHistory.map((v) => v.date)
-    const priceMax = Math.max.apply(null, itemPriceTrend);
-    const priceMin = Math.min.apply(null, itemPriceTrend);
+    // const itemDetail = trendItem && trendItem.itemDetail;
+    // const trendHistory = trendItem && trendItem.trendHistory;
+    // const lastPrice = trendHistory && trendHistory[trendHistory.length - 1] && trendHistory[trendHistory.length - 1].price
+    // const lastDate = trendHistory && trendHistory[trendHistory.length - 1] && trendHistory[trendHistory.length - 1].date
+    // const itemPriceTrend = trendHistory && trendHistory.map((v) => v.price)
+    // const itemPriceTrendDate = trendHistory && trendHistory.map((v) => v.date)
+    // const priceMax = Math.max.apply(null, itemPriceTrend);
+    // const priceMin = Math.min.apply(null, itemPriceTrend);
 
 
     return (
@@ -196,7 +239,8 @@ const ItemTrendDetail = (props) => {
                     <LeftArticleWrap>
                         <ImageSectionWrap>
                             <TopContainerWrap>
-                                <img style={{width: '100%'}} src={itemDetail && itemDetail.image} alt="image"/>
+                                <img style={{width: '100%'}} src={props.itemDetail && props.itemDetail.image} alt="image"/>
+                                {/* <img style={{width: '100%'}} src={itemDetail && itemDetail.image} alt="image"/> */}
                             </TopContainerWrap>
                         </ImageSectionWrap>
                     </LeftArticleWrap>
@@ -204,10 +248,10 @@ const ItemTrendDetail = (props) => {
                     <RightArticleWrap>
                         <TitleTextWrap>
                             <TitleText>
-                                {itemDetail && itemDetail.name}
+                                {props.itemDetail && props.itemDetail.name}
                             </TitleText>
                         </TitleTextWrap>
-                        <SubTitleTextWrap>
+                        {/* <SubTitleTextWrap>
                             <SubTitle>
                                 {i18n.t('detail.secondHand')}
                             </SubTitle>
@@ -240,7 +284,7 @@ const ItemTrendDetail = (props) => {
                         </div>
                         <div style={{padding: '20px 20px 40px', backgroundColor: '#DCFFF7', marginTop: 20,borderRadius: 20}}>
                             <EachLineChartContainer priceTrend={itemPriceTrend} dateTrend={itemPriceTrendDate} name={itemDetail && itemDetail.name} width={'100%'} height={250}/>
-                        </div>
+                        </div> */}
                     </RightArticleWrap>
 
                 </HomeMainContainer>

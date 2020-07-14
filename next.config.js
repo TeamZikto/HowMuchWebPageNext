@@ -1,7 +1,10 @@
 const withImages = require('next-images')
+const withCSS = require('@zeit/next-css')
 
-module.exports = withImages({
+
+module.exports = withImages(withCSS({
   webpack(config, options) {
     return config
   },
-})
+  distDir: 'build',
+}))
