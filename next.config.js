@@ -7,4 +7,5 @@ module.exports = withImages(withCSS({
     return config
   },
   distDir: 'build',
+  exportTrailingSlash: true,
 }))

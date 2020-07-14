@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import Router, { useRouter, withRouter } from 'next/router'
-import withHead from '../../components/hoc/withHead';
-import { detail } from '../../api/api';
-import EachLineChartContainer from '../../components/EachItemLinkChartContainer';
+import withHead from '../../../components/hoc/withHead';
+import { detail } from '../../../api/api';
+import EachLineChartContainer from '../../../components/EachItemLinkChartContainer';
 import numeral from 'numeral';
 import moment from 'moment';
-import i18n from '../../config/lang/i18n';
+import i18n from '../../../config/lang/i18n';
 
 const HomeWrap = styled.div`
     width: 100%;
@@ -165,14 +165,20 @@ export async function getStaticProps(context) {
     // console.log(context)
     // const [trendItem, setTrendItem] = useState();
 
+    // 파일 이름 한글
+    // 서빙하는 포인트에 decode 
+    // next export시, encoded 
+
     let {id} = context.params;
+    // console.log(id)
+    id = encodeURIComponent(id)
     id = id.split('-').join(' ')
-    // const result = await detail.getDetailTrendItemKo(id.split('-').join(' '));
+    // // const result = await detail.getDetailTrendItemKo(id.split('-').join(' '));
     const result = await fetch(`https://howmuch.zikto.com/api/web/detail/${id}`)
     const data = await result.json()
-    // setTrendItem(result.data.data)
-    console.log(data)
+    // // setTrendItem(result.data.data)
     
+
     // const itemDetail = trendItem && trendItem.itemDetail;
     // const trendHistory = trendItem && trendItem.trendHistory;
     // const lastPrice = trendHistory && trendHistory[trendHistory.length - 1] && trendHistory[trendHistory.length - 1].price
@@ -186,39 +192,26 @@ export async function getStaticProps(context) {
     return {
       props: {
         itemDetail: data.data.itemDetail,
+        // itemDetail: "fe",
       },
     }
   }
 
 export async function getStaticPaths() {
     const res = await fetch(`https://howmuch.zikto.com/api/web/trend/itemList`)
-    const items = await res.json()
+    const items = await res.json();
 
-    const fetchItems = items && items.data
-    // const fetchItemName = fetchItems && fetchItems.map((v)=> v.name)
-    // console.log(fetchItemName)
+    const fetchItems = items && items.data;
 
+    const paths = fetchItems.map(item => `/itemTrendDetail/${item.name}`);
+    // const paths = posts.map(post => `/posts/${post.id}`)
 
-    return {
-        // paths: [
-        //     { params: { id: encodeURIComponent(fetchItemName)} },
-        //     // { params: { id :encodeURIComponent(items.name)}}
-        // ],
-
-        paths: fetchItems && fetchItems.map((item) => {
-            return {
-                params: {
-                    id: `${encodeURIComponent(item.name)}`
-                }
-            }
-        }),
-    
-        fallback: true
-    }
+    return {  paths, fallback: false }
 }
 
 const ItemTrendDetail = (props) => {
-    // const {router: {query: {id}}} = props;
+
+    const {router: {query: {id}}} = props;
     // const [trendItem, setTrendItem] = useState();
     // useEffect(() => {
     //     const getTrendItem = async() => {

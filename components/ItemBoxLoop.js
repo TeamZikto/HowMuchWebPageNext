@@ -147,7 +147,6 @@ const ItemBoxLoop = ({trendItem, logo}) => {
 
     const _linkItemDetail = (name) => {
         // const name = selectedModel.split(' ').join('-');
-        
         Router.push(`/itemTrendDetail/[id]`, `/itemTrendDetail/${name.split(' ').join('-')}`)
     }
 

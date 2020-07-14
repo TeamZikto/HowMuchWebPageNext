@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Header from '../components/Header';
 import Footer from '../components/Footer/index.js';
 import NProgress from 'nprogress';
-import GlobalStyles from '../components/GlobalStyles';
+// import GlobalStyles from '../components/GlobalStyles';
 import Router from 'next/router';
 import 'swiper/swiper-bundle.css';
 import moment from 'moment';
@@ -34,7 +34,7 @@ class RootApp extends App {
                     <Header />
                     <main>
                         <Component {...other} />
-                        <GlobalStyles />
+                        {/* <GlobalStyles /> */}
                     </main>
                     <Footer />
                 </Layout>
