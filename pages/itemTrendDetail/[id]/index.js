@@ -246,7 +246,7 @@ const ItemTrendDetail = (props) => {
                     <LeftArticleWrap>
                         <ImageSectionWrap>
                             <TopContainerWrap>
-                                <img style={{width: '100%'}} src={props.itemDetail && props.itemDetail.image} alt="image"/>
+                                <img style={{width: '100%'}} src={itemDetail && itemDetail.image} alt="image"/>
                                 {/* <img style={{width: '100%'}} src={itemDetail && itemDetail.image} alt="image"/> */}
                             </TopContainerWrap>
                         </ImageSectionWrap>
