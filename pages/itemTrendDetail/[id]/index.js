@@ -202,8 +202,8 @@ export async function getStaticPaths() {
     const items = await res.json();
 
     const fetchItems = items && items.data;
-
-    const paths = fetchItems.map(item => `/itemTrendDetail/${item.name}`);
+    
+    const paths = fetchItems && fetchItems.map(item => `/itemTrendDetail/${item.name.split(' ').join('-')}`);
     // const paths = posts.map(post => `/posts/${post.id}`)
 
     return {  paths, fallback: false }
@@ -246,7 +246,7 @@ const ItemTrendDetail = (props) => {
                     <LeftArticleWrap>
                         <ImageSectionWrap>
                             <TopContainerWrap>
-                                <img style={{width: '100%'}} src={props.itemDetail && props.itemDetail.image} alt="image"/>
+                                <img style={{width: '100%'}} src={itemDetail && itemDetail.image} alt="image"/>
                                 {/* <img style={{width: '100%'}} src={itemDetail && itemDetail.image} alt="image"/> */}
                             </TopContainerWrap>
                         </ImageSectionWrap>
