@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "rm -rf ./out && next build && next export"
+    "export": "rm -rf ./out && next build && next export",
+    "deploy": "aws s3 sync ./out s3://ulmaya-next.zikto.com"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
