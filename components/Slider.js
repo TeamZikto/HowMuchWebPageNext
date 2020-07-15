@@ -1,7 +1,9 @@
 import React, { Component, useState, useEffect } from "react";
 import Slider from "react-slick";
+import i18n from '../config/lang/i18n';
 import Swiper from 'react-id-swiper';
-
+// import Swiper from 'swiper';
+import 'swiper/swiper-bundle.css';
 
 
 
@@ -23,6 +25,7 @@ const SliderWrap = styled.div`
 `
 
 const ItemSlider = ({recentUserItemList}) => {
+    const [controlledSwiper, setControlledSwiper] = useState(null);
 
     const settings = {
         dots: true,
@@ -113,10 +116,6 @@ const ItemSlider = ({recentUserItemList}) => {
                                     {item.ItemPrice.category2}
                                 </span>
                                 </div>
-                                {/* <img 
-                                style={{width: '100%', height: '100%'}}
-                                src={item.picture1}
-                                /> */}
                             </SliderWrap>
                             <div style={{marginTop: 10}}>
                                 <span style={{fontWeight: 'normal', fontSize: 12, lineHeight: 2, fontFamily: 'SpoqaHanSans-Regular'}}>
@@ -157,8 +156,7 @@ const ItemSlider = ({recentUserItemList}) => {
                                         fontFamily: 'SpoqaHanSans-Bold'
                                     }}
                                 >
-                                    최고가
-                                    {/* {i18n.t('price.highest')} */}
+                                    {i18n.t('price.highest')}
                                 </span>
                                 <span
                                     style={{
@@ -188,8 +186,7 @@ const ItemSlider = ({recentUserItemList}) => {
                                         fontFamily: 'SpoqaHanSans-Bold'
                                     }}
                                     >
-                                    최저가
-                                    {/* {i18n.t('price.lowest')} */}
+                                    {i18n.t('price.lowest')}
                                 </span>
                                 <span
                                     style={{

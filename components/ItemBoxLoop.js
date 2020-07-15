@@ -171,9 +171,9 @@ const ItemBoxLoop = ({trendItem, logo}) => {
                             return (
                                 <TrendItemBoxWrap key={i}>
                                     <div style={{display: 'flex', justifyContent: 'space-between', width: '100%', cursor: 'pointer'}}>
-                                        {/* <a onClick={() => _linkItemDetail(name)}> */}
-                                        <Link href={`/itemTrendDetail/${name.split(' ').join('-')}`}>
-                                            <a>
+                                        <a onClick={() => _linkItemDetail(name)}>
+                                        {/* <Link href={`/itemTrendDetail/${name.split(' ').join('-')}`}> */}
+                                            {/* <a> */}
                                             <TrendItemName>{name}</TrendItemName>
                                             <TrendItemPrice>{numeral(v.priceTrend[priceTrend.length - 1]).format('0,0')} 원</TrendItemPrice>
                                             {itemPricePercentage < 0 && (
@@ -198,7 +198,7 @@ const ItemBoxLoop = ({trendItem, logo}) => {
                                                 </PercentageWrap>
                                             )}
                                         </a>
-                                        </Link>
+                                        {/* </Link> */}
                                         <LineChartContainer dateTrend={dateTrend} priceTrend={priceTrend}/>
                                     </div>
                                 </TrendItemBoxWrap>

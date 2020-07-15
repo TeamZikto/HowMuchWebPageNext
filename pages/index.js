@@ -14,22 +14,22 @@ import ItemSlider from "../components/Slider";
 
 
 //  images
-import articleMain from "../static/image/article_main.png";
+import articleMain from "../assets/image/article_main.png";
 
-import app_store from "../static/image/app-store.png";
-import google_play from "../static/image/google-play.png";
+import app_store from "../assets/image/app-store.png";
+import google_play from "../assets/image/google-play.png";
 
-import imageMain_pc from "../static/image/pc_main_graphic.png";
-import imageMain_mobile from "../static/image/mobile_main_graphic.png";
-import imageMain_tablet from "../static/image/tablet_main_graphic.png";
-import articleSubImage1 from "../static/image/article_sub1.png";
+import imageMain_pc from "../assets/image/pc_main_graphic.png";
+import imageMain_mobile from "../assets/image/mobile_main_graphic.png";
+import imageMain_tablet from "../assets/image/tablet_main_graphic.png";
+import articleSubImage1 from "../assets/image/article_sub1.png";
 
-import image_blog_pc_1 from '../static/image/blog/pc_blog_image_1.png'
-import image_blog_pc_2 from '../static/image/blog/pc_blog_image_2.png'
-import image_blog_pc_3 from '../static/image/blog/pc_blog_image_3.png'
-import image_blog_pc_4 from '../static/image/blog/pc_blog_image_4.png'
-import image_blog_pc_5 from '../static/image/blog/pc_blog_image_5.png'
-import image_blog_pc_6 from '../static/image/blog/pc_blog_image_6.png'
+import image_blog_pc_1 from '../assets/image/blog/pc_blog_image_1.png'
+import image_blog_pc_2 from '../assets/image/blog/pc_blog_image_2.png'
+import image_blog_pc_3 from '../assets/image/blog/pc_blog_image_3.png'
+import image_blog_pc_4 from '../assets/image/blog/pc_blog_image_4.png'
+import image_blog_pc_5 from '../assets/image/blog/pc_blog_image_5.png'
+import image_blog_pc_6 from '../assets/image/blog/pc_blog_image_6.png'
 
 const HomeWrap = styled.div`
   width: 100%;
@@ -419,21 +419,25 @@ const Home = () => {
     useEffect(() => {
         const getRecentUserItem = async () => {
             try {
-                const result = await item.recentGetItems()
-                setRecentUserItemList(result.data.data.recentAddedItems)
+                const result = await item.recentGetItems();
+                setRecentUserItemList(result.data.data.recentAddedItems);
             } catch(e) {
-                console.log(e)
+                console.log(e);
             }
         }
 
         const getTrendItem = async () => {
             try {
-                const result = await item.recentGetItems()
-                setTrendItem(result.data.data.trend)
+                const result = await item.recentGetItems();
+                setTrendItem(result.data.data.trend);
             } catch(e) {
-                console.log(e)
+                console.log(e);
             }
         }
+        const scrollTop = () =>{
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        };
+        scrollTop();
         getRecentUserItem();
         getTrendItem();
         
@@ -532,7 +536,7 @@ const Home = () => {
                 </HomeArticleContainer>
 
                 {/* User recent items */}
-                <HomeArticleContainer style={{ backgroundColor: "#f9f8f9" }}>
+                {/* <HomeArticleContainer style={{ backgroundColor: "#f9f8f9" }}>
                     <ThirdArticleWrap>
                         <div style={{ width: "100%" }}>
                             <SubTitleTextThird>
@@ -543,8 +547,9 @@ const Home = () => {
                             <ItemSlider recentUserItemList={recentUserItemList} />
                         </div>
                     </ThirdArticleWrap>
-                </HomeArticleContainer>
+                </HomeArticleContainer> */}
 
+                {/* Blog */}
                 <HomeArticleContainer>
                     <ThirdArticleWrap>
                         <BlogContainer>
