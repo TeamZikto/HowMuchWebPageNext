@@ -396,4 +396,4 @@ const Home = () => {
     )
 }
 
-export default withHead(Home, '얼마야 - 촬영하면 돈이된다', '얼마야는 사진만 찍어서 중고가치를 실시간으로 평가하는 애플리케이션입니다. 평가받은 물건으로 소액대출이 가능한 모바일 전당포 플랫폼입니다.');
+export default withHead(Home, 'ulmaya - Nếu chụp ảnh thì sẽ có tiền.', 'Chỉ chụp ảnh và đánh giá giá giá trị trung bình và cao trong thời gian thực. Đây là nền tảng cầm cố di động có thể vay tiền nhỏ bằng những đồ vật được đánh giá.', null, null, 'https://zikto-website.s3.ap-northeast-2.amazonaws.com/images/643x989.png');

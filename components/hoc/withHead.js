@@ -2,24 +2,22 @@ import Head from 'next/head';
 import {useRouter} from 'next/router';
 
 const withHead = (Component, title, description, keyword, canonical, image, width, height) => {
-	
-	const keywords = keyword ? `중고거래, 중고매입, 담보대출, 소액대출, 휴대폰 판매, 노트북 판매, 카메라 매입, ${keyword}` : `중고거래, 중고매입, 담보대출, 소액대출, 휴대폰 판매, 노트북 판매, 카메라 매입`;
-	const canonicals = `https://ulmaya.zikto.com/${canonical}`;
-	const images = image !== undefined && image;
-	
-
-	// const width = image && (width || 1200);
-    // const height = image && (height || 630);
 	const C = props => {
-		const {router: {query: {id}}} = props;
+		const {router: {query: {id}, pathname}} = props;
+		const pathCheck = pathname.includes('/vn')
+
 		const idDescription = `${id}, ${description}`;
 		const idCanonical = `https://ulmaya.zikto.com/itemTrendDetail/${id}`
-		const idTitle = `얼마야-${id}`;
+		const idTitle = pathCheck ? `Ulmaya-${id}` : `얼마야-${id}`;
 		const idImage = props.pageProps && props.pageProps.itemDetail && props.pageProps.itemDetail.itemDetail && props.pageProps.itemDetail.itemDetail.image;
+		const keywords = pathCheck ? keyword ? `Giao dịch đã qua sử dụng, mua lại, cho vay thế chấp, cho vay nhỏ, bán điện thoại di động, bán máy tính xách tay, mua máy ảnh, ${keyword}` : `Giao dịch đã qua sử dụng, mua lại, cho vay thế chấp, cho vay nhỏ, bán điện thoại di động, bán máy tính xách tay, mua máy ảnh` : keyword ? `중고거래, 중고매입, 담보대출, 소액대출, 휴대폰 판매, 노트북 판매, 카메라 매입, ${keyword}` : `중고거래, 중고매입, 담보대출, 소액대출, 휴대폰 판매, 노트북 판매, 카메라 매입`;
+		const canonicals = `https://ulmaya.zikto.com/${canonical}`;
+		const images = image !== undefined && image;
+		
 		return (
 			<>
 				<Head>
-					<meta name="author" content="얼마야" />
+					{pathCheck ? <meta name="author" content="ulmaya" /> : <meta name="author" content="얼마야" />}
 					{id ? <title>{idTitle}</title> : title ? <title>{title}</title> : null}
 					{id ? <meta name="description" content={idDescription} /> : description ? <meta name="description" content={description} /> : null}
 					<meta name="keywords" content={keywords} />

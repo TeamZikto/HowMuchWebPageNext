@@ -160,61 +160,43 @@ const PriceMinText = styled.span`
     }
 `
 export async function getStaticProps(context) {
-    // Call an external API endpoint to get posts.
-    // You can use any data fetching library
-    // console.log(context)
-    // const [trendItem, setTrendItem] = useState();
-
-    // 파일 이름 한글
-    // 서빙하는 포인트에 decode 
-    // next export시, encoded 
-
     let {id} = context.params;
-    // console.log(id)
     id = encodeURIComponent(id)
     id = id.split('-').join(' ')
-    // // const result = await detail.getDetailTrendItemKo(id.split('-').join(' '));
     const result = await fetch(`https://howmuch.zikto.com/api/web/detail/${id}`)
     const data = await result.json()
-    // // setTrendItem(result.data.data)
-    
-
-    // const itemDetail = trendItem && trendItem.itemDetail;
-    // const trendHistory = trendItem && trendItem.trendHistory;
-    // const lastPrice = trendHistory && trendHistory[trendHistory.length - 1] && trendHistory[trendHistory.length - 1].price
-    // const lastDate = trendHistory && trendHistory[trendHistory.length - 1] && trendHistory[trendHistory.length - 1].date
-    // const itemPriceTrend = trendHistory && trendHistory.map((v) => v.price)
-    // const itemPriceTrendDate = trendHistory && trendHistory.map((v) => v.date)
-    // const priceMax = Math.max.apply(null, itemPriceTrend);
-    // const priceMin = Math.min.apply(null, itemPriceTrend);
-    // By returning { props: posts }, the Blog component
-    // will receive `posts` as a prop at build time
     return {
-      props: {
-        itemDetail: data.data
-      },
+        props: {
+            itemDetail: data.data
+        },
     }
-  }
+}
 
 export async function getStaticPaths() {
     const res = await fetch(`https://howmuch.zikto.com/api/web/trend/itemList`)
     const items = await res.json();
-
     const fetchItems = items && items.data;
-    
     const paths = fetchItems && fetchItems.map(item => `/itemTrendDetail/${item.name.split(' ').join('-')}`);
-    // const paths = posts.map(post => `/posts/${post.id}`)
-
     return {  paths, fallback: false }
 }
 
 const ItemTrendDetail = (props) => {
-    const {router: {query: {id}}} = props;
-
+    const {router: {query: {id}, pathname}} = props;
+    const [lang, setLang] = useState('Vietnamese');
     useEffect(() => {
         const scrollTop = () =>{
             window.scrollTo({top: 0, behavior: 'smooth'});
         };
+        const changeLang = () => {
+            if(pathname.includes('/vn')) {
+                i18n.changeLanguage('vn')
+                setLang('Vietnamese')
+            } else {
+                i18n.changeLanguage('ko')
+                setLang('korean')
+            }
+        }
+        changeLang();
         scrollTop();
     }, [])
 

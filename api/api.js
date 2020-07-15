@@ -14,7 +14,8 @@ export const trend = {
   smTrendGetItems: (category1) => api.get(`/api/web/trend/${category1}/2`),
   lgTrendGetItems: (category1) => api.get(`/api/web/trend/${category1}/3`),
 
-  getAllItemList: () => api.get(`/api/web/trend/itemList`)
+  getAllItemList: () => api.get(`/api/web/trend/itemList`),
+  getAllVNItemList: () => api.get(`/api/web/trend/vn/itemList`)
 };
 
 export const getTrend = {

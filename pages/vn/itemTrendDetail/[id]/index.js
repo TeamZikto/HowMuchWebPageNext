@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import Router, { useRouter, withRouter } from 'next/router'
-import { detail } from '../../../api/api';
-import i18n from '../../../config/lang/i18n';
-import EachLineChartContainer from '../../../components/EachItemLinkChartContainer';
+import { detail } from '../../../../api/api';
+import i18n from '../../../../config/lang/i18n';
+import EachLineChartContainer from '../../../../components/EachItemLinkChartContainer';
 import numeral from 'numeral';
 import moment from 'moment';
-import withHead from '../../../components/hoc/withHead';
+import withHead from '../../../../components/hoc/withHead';
 
 const HomeWrap = styled.div`
     width: 100%;
@@ -191,38 +191,46 @@ const ButtonWrap = styled.button`
         font-size: 14px;
     }
 `
+export async function getStaticProps(context) {
+    let {id} = context.params;
+    console.log(id)
+    id = encodeURIComponent(id)
+    id = id.split('-').join(' ')
+    const result = await fetch(`https://howmuch.zikto.com/api/vn/${id}`)
+    const data = await result.json()
+    return {
+        props: {
+            itemDetail: data.data
+        },
+    }
+}
 
+export async function getStaticPaths() {
+    const res = await fetch(`https://howmuch.zikto.com/api/web/trend/vn/itemList`)
+    const items = await res.json();
+    const fetchItems = items && items.data;
+    const paths = fetchItems && fetchItems.map(item => `/vn/itemTrendDetail/${item.name.split(' ').join('-')}`);
+    return {  paths, fallback: false }
+}
 
-const ItemTrendDetail = (props) => {
-    const { router: {query: {id}, pathname} } = props
-    console.log(props)
+const VNItemTrendDetail = (props) => {
+    const {router: {query: {id}, pathname}} = props;
     const pathCheck = pathname.includes('/vn');
-    const [trendItem, setTrendItem] = useState();
-
     useEffect(() => {
-        const getTrendItem = async() => {
-            try {
-                const result = await detail.getDetailTrendItemVn(String(id).split('-').join(' '));
-                setTrendItem(result.data.data)
-            } catch(e) {
-                console.log(e)
-            }
-        }
         const scrollTop = () =>{
             window.scrollTo({top: 0, behavior: 'smooth'});
         };
-        getTrendItem();
         scrollTop();
-    }, [props])
+    }, [])
 
     const sendMail = () => {
         Router.push('/vn/sendMail')
     }
 
-    const itemDetail = trendItem && trendItem.itemDetail;
-    const trendHistory = trendItem && trendItem.trendHistory;
-    const lastPrice = trendHistory && trendHistory[trendHistory.length - 1] && trendHistory[trendHistory.length - 1].price
-    const lastDate = trendHistory && trendHistory[trendHistory.length - 1] && trendHistory[trendHistory.length - 1].date
+    const itemDetail = props && props.pageProps && props.pageProps.itemDetail && props.pageProps.itemDetail.itemDetail; 
+    const trendHistory = props && props.pageProps && props.pageProps.itemDetail && props.pageProps.itemDetail.trendHistory; 
+    const lastPrice = trendHistory && trendHistory[trendHistory.length - 1] && trendHistory[trendHistory.length - 1].price;
+    const lastDate = trendHistory && trendHistory[trendHistory.length - 1] && trendHistory[trendHistory.length - 1].date;
     const itemPriceTrend = trendHistory && trendHistory.map((v) => v.price)
     const itemPriceTrendDate = trendHistory && trendHistory.map((v) => v.date)
     const priceMax = Math.max.apply(null, itemPriceTrend);
@@ -317,4 +325,4 @@ const ItemTrendDetail = (props) => {
     )
 }
 
-export default ItemTrendDetail;
+export default withHead(VNItemTrendDetail, '똠양꿍', 'Bạn có thể biết giá trung bình của giá thị trường đã qua sử dụng, xu hướng giá cả, giới hạn cho vay và giá');

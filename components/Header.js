@@ -224,7 +224,7 @@ const Header = (props) => {
                                     <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: 100, }}>
                                         <p>{i18n.t('lang.vn')}</p>
                                         <p style={{width: 16, height: 16}}>
-                                        {lang === 'Vietnamese'  ? <img src={check} style={{width: 16, height: 16}} /> : <img src={uncheck} style={{width: 16, height: 16}} />}
+                                            {lang === 'Vietnamese'  ? <img src={check} style={{width: 16, height: 16}} /> : <img src={uncheck} style={{width: 16, height: 16}} />}
                                         </p>
                                     </div>
                                 </Dropdown.Item>
