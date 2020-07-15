@@ -536,7 +536,7 @@ const Home = () => {
                 </HomeArticleContainer>
 
                 {/* User recent items */}
-                <HomeArticleContainer style={{ backgroundColor: "#f9f8f9" }}>
+                {/* <HomeArticleContainer style={{ backgroundColor: "#f9f8f9" }}>
                     <ThirdArticleWrap>
                         <div style={{ width: "100%" }}>
                             <SubTitleTextThird>
@@ -547,8 +547,9 @@ const Home = () => {
                             <ItemSlider recentUserItemList={recentUserItemList} />
                         </div>
                     </ThirdArticleWrap>
-                </HomeArticleContainer>
+                </HomeArticleContainer> */}
 
+                {/* Blog */}
                 <HomeArticleContainer>
                     <ThirdArticleWrap>
                         <BlogContainer>
