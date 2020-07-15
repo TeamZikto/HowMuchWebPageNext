@@ -8,5 +8,6 @@ module.exports = withImages(withCSS({
   },
   distDir: 'build',
   exportTrailingSlash: true,
+  
   // assetPrefix: '/ulmaya-next.zikto.com',
 }))
