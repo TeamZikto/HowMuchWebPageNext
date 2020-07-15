@@ -146,8 +146,9 @@ const Header = (props) => {
 
     useEffect(() => {
         const {pathname} = nextRouter;
+        const pathCheck = pathname.includes('/vn');
         const changeLang = () => {
-            if(pathname.includes('/vn')) {
+            if(pathCheck === true) {
                 i18n.changeLanguage('vn')
                 setLang('Vietnamese')
             } else {
@@ -156,7 +157,7 @@ const Header = (props) => {
             }
         }
         changeLang();
-    }, [])
+    }, [props])
 
     const changeLanguage = (e) => {
         if(e.split(',')[0] === 'ko') {

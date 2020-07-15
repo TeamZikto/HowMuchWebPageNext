@@ -193,7 +193,6 @@ const ButtonWrap = styled.button`
 `
 export async function getStaticProps(context) {
     let {id} = context.params;
-    console.log(id)
     id = encodeURIComponent(id)
     id = id.split('-').join(' ')
     const result = await fetch(`https://howmuch.zikto.com/api/vn/${id}`)
@@ -216,11 +215,17 @@ export async function getStaticPaths() {
 const VNItemTrendDetail = (props) => {
     const {router: {query: {id}, pathname}} = props;
     const pathCheck = pathname.includes('/vn');
+    const langCheck = i18n && i18n.language;
     useEffect(() => {
         const scrollTop = () =>{
             window.scrollTo({top: 0, behavior: 'smooth'});
         };
+        const changeLanguage = () => {
+            langCheck === 'vn' && i18n && i18n.changeLanguage('vn');
+            pathCheck && i18n && i18n.changeLanguage('vn');
+        }
         scrollTop();
+        changeLanguage();
     }, [])
 
     const sendMail = () => {
@@ -261,7 +266,8 @@ const VNItemTrendDetail = (props) => {
                                         marginRight: 10
                                     }}
                                 >
-                                    {i18n.t('detail.sell_button')}
+                                    {/* {i18n.t('detail.sell_button')} */}
+                                    Bán sản phẩm
                                 </ButtonWrap>
                                 <ButtonWrap
                                     onClick={sendMail}
@@ -271,7 +277,8 @@ const VNItemTrendDetail = (props) => {
                                         color: 'white'
                                     }}
                                 >
-                                    {i18n.t('detail.loan_button')}
+                                    {/* {i18n.t('detail.loan_button')} */}
+                                    Khoản vay thế chấp
                                 </ButtonWrap>
                             </ButtonArea>
                         )}
@@ -285,30 +292,45 @@ const VNItemTrendDetail = (props) => {
                         </TitleTextWrap>
                         <SubTitleTextWrap>
                             <SubTitle>
-                                {i18n.t('detail.secondHand')}
+                                {/* {i18n.t('detail.secondHand')} */}
+                                Lời trích dẫn lại gần đây nhất
                             </SubTitle>
                             <PriceText>
-                                {numeral(lastPrice).format('0,0')} {i18n.t('unit')}
+                                {numeral(lastPrice).format('0,0')} VND
+                                {/* {i18n.t('unit')} */}
                             </PriceText>
                         </SubTitleTextWrap>
                         <div style={{paddingTop: 30, borderBottom: '1px solid #F6F6F6'}}>
                             <SubTitle>
-                                {i18n.t('detail.marketPrice')}
+                                {/* {i18n.t('detail.marketPrice')} */}
+                                Giá thấp nhất
                             </SubTitle>
                             <div style={{marginTop: 20, marginBottom: 30}}>
                                 <PriceTextWrap>
-                                    <PriceMaxText style={{color: 'black'}}>{i18n.t('detail.highest')}</PriceMaxText>
-                                    <PriceMaxText>{numeral(priceMax).format('0,0')} {i18n.t('unit')}</PriceMaxText>
+                                    <PriceMaxText style={{color: 'black'}}>
+                                        {/* {i18n.t('detail.highest')} */}
+                                        Giá cao nhất
+                                    </PriceMaxText>
+                                    <PriceMaxText>{numeral(priceMax).format('0,0')} VND
+                                        {/* {i18n.t('unit')} */}
+                                    </PriceMaxText>
                                 </PriceTextWrap>
                                 <PriceTextWrap>
-                                    <PriceMinText style={{color: 'black'}}>{i18n.t('detail.lowest')}</PriceMinText>
-                                    <PriceMinText>{numeral(priceMin).format('0,0')} {i18n.t('unit')}</PriceMinText>
+                                    <PriceMinText style={{color: 'black'}}>
+                                        {/* {i18n.t('detail.lowest')} */}
+                                        Giá thấp nhất
+                                    </PriceMinText>
+                                    <PriceMinText>
+                                        {numeral(priceMin).format('0,0')} VND
+                                        {/* {i18n.t('unit')} */}
+                                    </PriceMinText>
                                 </PriceTextWrap>
                             </div>
                         </div>
                         <div style={{paddingTop: 30, display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
                             <SubTitle>
-                                {i18n.t('detail.chart')}
+                                {/* {i18n.t('detail.chart')} */}
+                                Biểu đồ trích dẫn cũ
                             </SubTitle>
                             <SubTitle style={{fontWeight: 400}}>
                                 {moment(lastDate).format("YYYY. MM")}

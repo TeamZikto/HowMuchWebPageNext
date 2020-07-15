@@ -165,6 +165,8 @@ export async function getStaticProps(context) {
     id = id.split('-').join(' ')
     const result = await fetch(`https://howmuch.zikto.com/api/web/detail/${id}`)
     const data = await result.json()
+
+
     return {
         props: {
             itemDetail: data.data
@@ -187,16 +189,6 @@ const ItemTrendDetail = (props) => {
         const scrollTop = () =>{
             window.scrollTo({top: 0, behavior: 'smooth'});
         };
-        const changeLang = () => {
-            if(pathname.includes('/vn')) {
-                i18n.changeLanguage('vn')
-                setLang('Vietnamese')
-            } else {
-                i18n.changeLanguage('ko')
-                setLang('korean')
-            }
-        }
-        changeLang();
         scrollTop();
     }, [])
 
