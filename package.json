@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "export": "rm -rf ./out && next build && next export",
-    "deploy": "aws s3 sync ./out s3://ulmaya-next.zikto.com"
+    "deploy": "aws s3 sync ./out s3://ulmaya.zikto.com",
+    "invalidate": "aws cloudfront create-invalidation --distribution-id E1BO4E5Y4NRIXU --path '/*'"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
