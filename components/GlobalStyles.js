@@ -9,6 +9,9 @@ const globalStyles = createGlobalStyle`
     }
     * {
         box-sizing: border-box;
+        font-family: 'Spoqa Han Sans', 'NotoSans Light', 'Malgun Gothic',
+        '맑은 고딕', 'Apple SD Gothic Neo', '돋움', dotum, sans-serif;
+        font-weight: 400;
     }
 
     button {
@@ -17,8 +20,35 @@ const globalStyles = createGlobalStyle`
         cursor: pointer;
     }
 
+    @font-face {
+        font-family: 'Spoqa Han Sans';
+        src: url('../public/fonts/spoqahansansregular-webfont.woff2') format('woff2')
+            url('../public/fonts/spoqahansansregular-webfont.woff') format('woff'),
+            url('../public/fonts/SpoqaHanSansRegular.ttf') format('truetype');
+        font-style: normal;
+        font-weight: normal;
+    }
+    @font-face {
+        font-family: 'Spoqa Han Sans Light';
+        src: url('../public/fonts/spoqahansanslight-webfont.woff2') format('woff2'),
+            url('../public/fonts/spoqahansanslight-webfont.woff') format('woff'),
+            url('../public/fonts/SpoqaHanSansLight.ttf') format('truetype');
+        font-style: normal;
+        font-weight: normal;
+    }
+    @font-face {
+        font-family: 'Spoqa Han Sans Bold';
+        src: url('../public/fonts/spoqahansansbold-webfont.woff2') format('woff2'),
+            url('../public/fonts/spoqahansansbold-webfont.woff') format('woff'),
+            url('../public/fonts/SpoqaHanSansBold.ttf') format('truetype');
+        font-style: normal;
+        font-weight: normal;
+    }
+
+
     body {
-        /* font-family: "Spoqa-Han-Sans"; */
+        font-family: 'Spoqa Han Sans', 'NotoSans Light', 'Malgun Gothic',
+        '맑은 고딕', 'Apple SD Gothic Neo', '돋움', dotum, sans-serif;
         font-weight: 400;
         font-size: 14px;
         padding-top: 70px;
@@ -26,31 +56,6 @@ const globalStyles = createGlobalStyle`
             padding-top: 60px;
         }
     }
-
-    /* @font-face {
-        font-family: "Spoqa-Han-Sans";
-        font-weight: 200;
-        src: url("../assets/fonts/SpoqaHanSans-Thin.woff2") format("woff2"),
-            url("../assets/fonts/SpoqaHanSans-Thin.woff") format("woff"),
-            url("../assets/fonts/SpoqaHanSans-Thin.ttf") format("ttf");
-    }
-
-    @font-face {
-        font-family: "Spoqa-Han-Sans";
-        font-style: normal;
-        font-weight: 400;
-        src: url("../assets/fonts/SpoqaHanSans-Regular.woff2") format("woff2"),
-            url("../assets/fonts/SpoqaHanSans-Regular.woff") format("woff"),
-            url("../assets/fonts/SpoqaHanSans-Regular.otf") format("otf");
-    }
-
-    @font-face {
-        font-family: "Spoqa-Han-Sans";
-        font-weight: 600;
-        src: url("../assets/fonts/SpoqaHanSans-Bold.woff2") format("woff2"),
-            url("../assets/fonts/SpoqaHanSans-Bold.woff") format("woff"),
-            url("../assets/fonts/SpoqaHanSans-Bold.otf") format("otf");
-    } */
 `
 
 export default globalStyles

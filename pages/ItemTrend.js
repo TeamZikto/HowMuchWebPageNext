@@ -90,7 +90,7 @@ const TitleText = styled.h1`
     font-size: 48px;
     line-height: 1.3125;
     margin-bottom: 87px;
-    font-family: 'SpoqaHanSans-Bold';
+    
 
     @media (max-width: 1024px) {
         
@@ -140,7 +140,7 @@ const SecondArticleWrap = styled.div`
 
 const SubTitleTextMobile = styled.h2`
     display: none;
-    font-family: 'SpoqaHanSans-Bold';
+    
     @media (max-width: 1024px) {
         display: none;
     }
@@ -160,7 +160,7 @@ const SubTitleText = styled.h2`
     color: black;
     font-size: 40px;
     line-height: 1.3125;
-    font-family: 'SpoqaHanSans-Bold';
+    
     @media (max-width: 1024px) {
         justify-content: flex-start;
         font-size: 28px;
@@ -180,7 +180,7 @@ const SecondaryTitle = styled.div`
     line-height: 1.3125;
     font-weight: 400;
     margin-bottom: 30px;
-    font-family: 'SpoqaHanSans-Regular';
+    
     font-weight: nomal;
     @media (max-width: 1024px) {
     }
@@ -218,7 +218,7 @@ const LogoItems = styled.li`
 const SelectOptionTitle = styled.div`
     font-size: 24px;
     line-height: 1.3125;
-    font-family: 'SpoqaHanSans-Regular';
+    
     font-weight: nomal;
     margin-bottom: 30px;
     @media (max-width: 1024px) {
@@ -526,4 +526,4 @@ const ItemTrend = () => {
     )
 }
 
-export default withHead(ItemTrend, '얼마야 - 중고 시세를 알아보세요.', '중고 시세의 평균값, 시세 추이, 대출 한도, 매입가를 알 수 있습니다.');
+export default withHead(ItemTrend, '얼마야 - 중고 시세를 알아보세요.', '중고 시세의 평균값, 시세 추이, 대출 한도, 매입가를 알 수 있습니다.', null, 'itemTrend', 'https://zikto-website.s3.ap-northeast-2.amazonaws.com/images/643x989.png');

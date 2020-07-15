@@ -90,7 +90,6 @@ const TitleText = styled.h1`
     line-height: 1.3125;
     margin-bottom: 87px;
     font-weight: 600;
-    font-family: 'SpoqaHanSans-Bold';
     @media (max-width: 1024px) {
         
     }
@@ -169,7 +168,7 @@ const PriceTrendArticleWrap = styled.div`
 
 const SubTitleTextMobile = styled.h2`
     display: none;
-    font-family: 'SpoqaHanSans-Bold';
+    
     @media (max-width: 1024px) {
         display: none;
     }
@@ -190,7 +189,7 @@ const SubTitleText = styled.h2`
     font-size: 40px;
     line-height: 1.3125;
     font-weight: 600;
-    font-family: 'SpoqaHanSans-Bold';
+    
     @media (max-width: 1024px) {
         justify-content: flex-start;
         font-size: 28px;
@@ -240,7 +239,7 @@ const ItemTrendLinkButton = styled.button`
     border-radius: 27px;
     color: white;
     font-weight: 600;
-    font-family: 'SpoqaHanSans-Bold';
+    
 
     @media (max-width: 768px) {
         font-size: 12px;
@@ -326,7 +325,7 @@ const SubTitleTextThird = styled.h2`
     justify-content: flex-start;
     margin-bottom: 50px;
     font-weight: 600;
-    font-family: 'SpoqaHanSans-Bold';
+    
 
     @media (max-width: 1024px) {
         font-size: 24px;
@@ -576,8 +575,8 @@ const Home = () => {
                             }}>
                                 <a href={`${v.link}`}>
                                     <img src={`${v.image}`} style={{width: '100%', height: '100%', borderRadius: 14}}/>
-                                    <div style={{fontWeight: 600, margin: '5px 0', fontFamily: 'SpoqaHanSans-Bold'}}>{v.title}</div>
-                                    <div style={{fontWeight: 400, fontSize: 12, lineHeight: '20px', fontFamily: 'SpoqaHanSans-Regular'}}>{v.subTitle}</div>
+                                    <div style={{fontWeight: 600, margin: '5px 0'}}>{v.title}</div>
+                                    <div style={{fontWeight: 400, fontSize: 12, lineHeight: '20px'}}>{v.subTitle}</div>
                                 </a>
                             </div>  
                         )
@@ -594,4 +593,4 @@ const Home = () => {
     )
 }
 
-export default withHead(Home, '얼마야 - 촬영하면 돈이된다', '얼마야는 사진만 찍어서 중고가치를 실시간으로 평가하는 애플리케이션입니다. 평가받은 물건으로 소액대출이 가능한 모바일 전당포 플랫폼입니다.');
+export default withHead(Home, '얼마야 - 촬영하면 돈이된다', '얼마야는 사진만 찍어서 중고가치를 실시간으로 평가하는 애플리케이션입니다. 평가받은 물건으로 소액대출이 가능한 모바일 전당포 플랫폼입니다.', null, null, 'https://zikto-website.s3.ap-northeast-2.amazonaws.com/images/643x989.png');

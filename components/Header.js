@@ -190,8 +190,8 @@ const Header = (props) => {
                         : <LinkItem><ALink href="https://ulmaya.zikto.com/page/">{i18n.t('header.label2')}</ALink></LinkItem>
                     }
                     <LinkItem>
-                        <Dropdown style={{height: '100%', height: 60, display: 'flex', justifyContent: 'center', alignItems: 'center'}} onSelect={changeLanguage}>
-                            <Dropdown.Toggle variant="secondary" size="sm" style={{width: 24, height :24, backgroundColor: 'white'}}>
+                        <Dropdown style={{height: '100%', height: 65, display: 'flex', justifyContent: 'center', alignItems: 'center'}} onSelect={changeLanguage}>
+                            <Dropdown.Toggle variant="secondary" size="sm" style={{backgroundColor: 'white'}}>
                                 <LangImage src={langImage} />
                             </Dropdown.Toggle>
                             <Dropdown.Menu
@@ -206,7 +206,7 @@ const Header = (props) => {
                                 >
                                 <Dropdown.Item eventKey={["ko", "korean"]}>
                                     <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: 100, marginBottom: 10}}>
-                                        <p style={{fontFamily: 'SpoqaHanSans-Regular'}}>{i18n.t('lang.ko')}</p>
+                                        <p>{i18n.t('lang.ko')}</p>
                                         <p style={{width: 16, height: 16}}>
                                             {lang === 'korean' ? <img src={check} style={{width: 16, height: 16}} /> : <img src={uncheck} style={{width: 16, height: 16}} /> }
                                         </p>
@@ -222,7 +222,7 @@ const Header = (props) => {
                                 </Dropdown.Item> */}
                                 <Dropdown.Item eventKey={["vn", "Vietnamese"]}>
                                     <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: 100, }}>
-                                        <p style={{fontFamily: 'SpoqaHanSans-Regular'}}>{i18n.t('lang.vn')}</p>
+                                        <p>{i18n.t('lang.vn')}</p>
                                         <p style={{width: 16, height: 16}}>
                                         {lang === 'Vietnamese'  ? <img src={check} style={{width: 16, height: 16}} /> : <img src={uncheck} style={{width: 16, height: 16}} />}
                                         </p>

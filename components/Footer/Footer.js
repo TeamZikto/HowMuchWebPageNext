@@ -93,7 +93,6 @@ const FooterSubTextBold = styled.p`
   font-size: 14px;
   color: white;
   font-weight: 500;
-  font-family: 'SpoqaHanSans-Regular';
   @media (max-width: 768px) {
     font-size: 12px;
   }
@@ -104,7 +103,6 @@ const FooterSubTextRegular = styled.p`
   color: white;
   font-weight: 300;
   line-height: 24px;
-  font-family: 'SpoqaHanSans-Thin';
   @media (max-width: 768px) {
     font-size: 12px;
   }
@@ -115,7 +113,6 @@ const FooterSubTextPhoneRegular = styled.a`
   color: white;
   font-weight: 300;
   line-height: 24px;
-  font-family: 'SpoqaHanSans-Thin';
   @media (max-width: 768px) {
     font-size: 12px;
   }
