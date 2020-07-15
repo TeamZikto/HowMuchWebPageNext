@@ -60,7 +60,7 @@ const EmailInput = styled.input`
     width: 100%;
     outline: none;
     border: none;
-    font-family: 'SpoqaHanSans-Bold';
+    
     font-size: 26px;
     @media (max-width: 1024px) {
         font-size: 20px;
@@ -71,7 +71,7 @@ const EmailInput = styled.input`
 `
 
 const SubmitButtonText = styled.p`
-    font-family: 'SpoqaHanSans-Bold';
+    
     font-size: 30px;
     @media (max-width: 1024px) {
         font-size: 20px;
@@ -82,7 +82,7 @@ const SubmitButtonText = styled.p`
 `
 
 const BoldText = styled.p`
-    font-family: 'SpoqaHanSans-Bold';
+    
     font-size: 30px;
     @media (max-width: 1024px) {
         font-size: 20px;
@@ -93,7 +93,7 @@ const BoldText = styled.p`
 `
 
 const RegularText = styled.p`
-    font-family: 'SpoqaHanSans-Regular';
+    
     font-size: 24px;
     @media (max-width: 1024px) {
         font-size: 16px;

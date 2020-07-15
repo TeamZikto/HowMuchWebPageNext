@@ -130,7 +130,7 @@ const HomeArticleContainer = styled.div`
 
 const SubTitleTextMobile = styled.h2`
     display: none;
-    font-family: 'SpoqaHanSans-Bold';
+    
     @media (max-width: 1024px) {
         display: none;
     }
@@ -151,7 +151,7 @@ const SubTitleText = styled.h2`
     font-size: 40px;
     line-height: 1.3125;
     font-weight: 600;
-    font-family: 'SpoqaHanSans-Bold';
+    
     @media (max-width: 1024px) {
         justify-content: flex-start;
         font-size: 28px;

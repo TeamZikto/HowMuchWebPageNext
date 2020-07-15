@@ -117,7 +117,7 @@ const PercentageMinusText = styled.div`
     font-weight: normal;
     font-size: 14px;
     line-height: 1.3125;
-    font-family: 'SpoqaHanSans-Regular';
+    
     @media (max-width: 1024px) {
         font-size: 12px;
     }
@@ -131,7 +131,7 @@ const PercentagePlusText = styled.div`
     font-weight: normal;
     font-size: 14px;
     line-height: 1.3125;
-    font-family: 'SpoqaHanSans-Regular';
+    
     @media (max-width: 1024px) {
         font-size: 12px;
     }
@@ -183,7 +183,6 @@ const TrendItemsBox = ({trendItem}) => {
                                     fontWeight: "bold",
                                     width: '100%',
                                     textAlign: "left",
-                                    fontFamily: 'SpoqaHanSans-Bold'
                                 }}
                                 text={`${v.name}`}
                                 maxLine="1"

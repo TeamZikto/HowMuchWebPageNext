@@ -54,7 +54,7 @@ const BrandLogoImage = styled.div`
 `
 
 const BrandLogoText = styled.p`
-    font-family: 'SpoqaHanSans-Bold';
+    
     font-weight: 600;
     font-size: 20px;
 `
@@ -76,7 +76,7 @@ const TrendItemBoxWrap = styled.div`
 
 const TrendItemName = styled.p`
     font-weight: 400;
-    font-family: 'SpoqaHanSans-Regular';
+    
 `
 
 const TrendItemPrice = styled.p`
@@ -84,7 +84,7 @@ const TrendItemPrice = styled.p`
     font-size: 20px;
     letter-spacing: 0.6px;
     margin: 10px 0;
-    font-family: 'SpoqaHanSans-Bold';
+    
 `
 
 const PercentageWrap = styled.div`

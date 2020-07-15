@@ -190,8 +190,8 @@ const Header = (props) => {
                         : <LinkItem><ALink href="https://ulmaya.zikto.com/page/">{i18n.t('header.label2')}</ALink></LinkItem>
                     }
                     <LinkItem>
-                        <Dropdown style={{height: '100%', height: 60, display: 'flex', justifyContent: 'center', alignItems: 'center'}} onSelect={changeLanguage}>
-                            <Dropdown.Toggle variant="secondary" size="sm" style={{width: 24, height :24, backgroundColor: 'white'}}>
+                        <Dropdown style={{height: '100%', height: 65, display: 'flex', justifyContent: 'center', alignItems: 'center'}} onSelect={changeLanguage}>
+                            <Dropdown.Toggle variant="secondary" size="sm" style={{backgroundColor: 'white'}}>
                                 <LangImage src={langImage} />
                             </Dropdown.Toggle>
                             <Dropdown.Menu

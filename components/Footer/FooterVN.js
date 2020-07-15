@@ -109,7 +109,7 @@ const FooterSubTextPhoneRegular = styled.a`
 `
 
 const FooterText = styled.p`
-    font-family: 'SpoqaHanSans-Bold';
+    
   font-size: 22px; 
   margin-bottom: 20px;
   color: white;

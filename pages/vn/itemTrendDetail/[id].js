@@ -86,7 +86,7 @@ const TitleText = styled.h1`
     color: black;
     font-size: 30px;
     line-height: 1.3125;
-    font-family: 'SpoqaHanSans-Bold';
+    
     @media (max-width: 768px) {
         font-size: 16px;
 }
@@ -102,7 +102,7 @@ const TitleTextWrap = styled.div`
 
 const SubTitleTextWrap = styled.div`
     padding-top: 30px;
-    font-family: 'SpoqaHanSans-Regular';
+    
     @media (max-width: 768px) {
         padding-top: 20px;
     }
@@ -112,7 +112,7 @@ const SubTitle = styled.h2`
     color: black;
     font-size: 20px;
     line-height: 1.3125;
-    font-family: 'SpoqaHanSans-Bold';
+    
 `
 
 const PriceText = styled.p`
@@ -120,7 +120,7 @@ const PriceText = styled.p`
     font-size: 60px;
     line-height: 1.3125;
     font-weight: 600;
-    font-family: 'SpoqaHanSans-Bold';
+    
     /* margin-top: 10px; */
     padding-bottom: 30px;
     letter-spacing: 2px;
@@ -143,7 +143,7 @@ const PriceMaxText = styled.span`
     color: #FF7575;
     font-size: 26px;
     letter-spacing: 0.8px;
-    font-family: 'SpoqaHanSans-Regular';
+    
     line-height: 24px;
     @media (max-width: 768px) {
         font-size: 16px;
@@ -154,7 +154,7 @@ const PriceMinText = styled.span`
     color: #75B1FF;
     font-size: 26px;
     letter-spacing: 0.8px;
-    font-family: 'SpoqaHanSans-Regular';
+    
     @media (max-width: 768px) {
         font-size: 16px;
     }
@@ -180,7 +180,7 @@ const ButtonWrap = styled.button`
     border: 2px solid #00E27F;
     width: 100%;
     height: 62px;
-    font-family: 'SpoqaHanSans-Bold';
+    
     font-size: 18px;
     @media (max-width: 1024px) {
         height: 55px;

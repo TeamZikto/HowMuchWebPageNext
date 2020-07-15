@@ -34,8 +34,8 @@ class RootApp extends App {
                 <Layout {...other} {...this.state}>
                     <Header />
                     <main>
-                        <Component {...other} />
                         <GlobalStyles />
+                        <Component {...other} />
                     </main>
                     <Footer />
                 </Layout>
